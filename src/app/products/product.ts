@@ -3,5 +3,4 @@ export interface Product {
   productName: string;
   productCode: string;
   description: string;
-  starRating: number;
 }
