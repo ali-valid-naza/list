@@ -1,8 +1,12 @@
+
+import { InMemoryDbService } from 'angular-in-memory-web-api';
+
 import { Product } from './product';
 
-export class ProductData  {
+export class ProductData implements InMemoryDbService {
 
-  products: Product[] = [
+  createDb() {
+    const products: Product[] = [
     {
       id: 1,
       productName: 'Product 1',
@@ -33,6 +37,7 @@ export class ProductData  {
       productCode: 'CODE-0042',
       description: 'description',
     }
-  ];
+    ];
+    return { products };
+  }
 }
-
