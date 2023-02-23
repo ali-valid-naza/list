@@ -18,6 +18,7 @@ import { ProductData } from './products/product-data';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HomeComponent } from './home/home/home.component';
 import { MenuComponent } from './home/menu/menu.component';
+import { LoginComponent } from './user/login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MenuComponent } from './home/menu/menu.component';
     ProductListComponent,
     ProductShelComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
