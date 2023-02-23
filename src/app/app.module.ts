@@ -16,13 +16,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductEffects } from './products/state/product.effects';
 import { ProductData } from './products/product-data';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HomeComponent } from './home/home/home.component';
+import { MenuComponent } from './home/menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductEditComponent,
     ProductListComponent,
-    ProductShelComponent
+    ProductShelComponent,
+    HomeComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
