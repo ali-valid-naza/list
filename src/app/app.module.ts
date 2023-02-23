@@ -10,11 +10,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductData } from './products/product-data';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { MenuComponent } from './home/menu/menu.component';
+import { ShellComponent } from './home/shell/shell.component';
+import { WelcomeComponent } from './home/welcome/welcome.component';
+import { PageNotFoundComponent } from './home/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
+    ShellComponent,
+    WelcomeComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
