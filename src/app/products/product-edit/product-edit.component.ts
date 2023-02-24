@@ -1,4 +1,13 @@
-import { Component, Input, OnChanges, OnInit, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import { Product } from '../product';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GenericValidator } from '../../shared/generic-validator';
@@ -6,7 +15,8 @@ import { GenericValidator } from '../../shared/generic-validator';
 @Component({
   selector: 'app-product-edit',
   templateUrl: './product-edit.component.html',
-  styleUrls: ['./product-edit.component.css']
+  styleUrls: ['./product-edit.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductEditComponent implements OnInit, OnChanges {
 
