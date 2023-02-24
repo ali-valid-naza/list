@@ -4,6 +4,7 @@ import {
   EventEmitter,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   Output,
   SimpleChanges
@@ -11,6 +12,7 @@ import {
 import { Product } from '../product';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GenericValidator } from '../../shared/generic-validator';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-edit',
@@ -18,7 +20,7 @@ import { GenericValidator } from '../../shared/generic-validator';
   styleUrls: ['./product-edit.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductEditComponent implements OnInit, OnChanges {
+export class ProductEditComponent implements OnInit, OnChanges, OnDestroy {
 
   pageTitle = 'Product Edit';
   @Input() errorMessage: string;
@@ -29,6 +31,7 @@ export class ProductEditComponent implements OnInit, OnChanges {
   @Output() clearCurrent = new EventEmitter<void>();
 
   productForm: FormGroup;
+  subscribeValueChanges: Subscription
 
   displayMessage: { [key: string]: string } = {};
   private validationMessages: { [key: string]: { [key: string]: string } };
@@ -56,7 +59,7 @@ export class ProductEditComponent implements OnInit, OnChanges {
       description: ''
     });
 
-    this.productForm.valueChanges.subscribe(
+   this.subscribeValueChanges = this.productForm.valueChanges.subscribe(
       () => this.displayMessage = this.genericValidator.processMessages(this.productForm)
     );
   }
@@ -117,5 +120,9 @@ export class ProductEditComponent implements OnInit, OnChanges {
         }
       }
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscribeValueChanges.unsubscribe();
   }
 }
