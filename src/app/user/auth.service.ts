@@ -14,7 +14,7 @@ export class AuthService {
   isLoggedIn(): boolean {
     return !!this.currentUser;
   }
-
+//imitation
   login(userName: string, password: string): void {
     this.currentUser = {
       id: 2,

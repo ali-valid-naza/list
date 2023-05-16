@@ -13,6 +13,8 @@ import { MenuComponent } from './home/menu/menu.component';
 import { ShellComponent } from './home/shell/shell.component';
 import { WelcomeComponent } from './home/welcome/welcome.component';
 import { PageNotFoundComponent } from './home/page-not-found/page-not-found.component';
+import { CommonModule } from '@angular/common';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { PageNotFoundComponent } from './home/page-not-found/page-not-found.comp
     PageNotFoundComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -33,14 +36,10 @@ import { PageNotFoundComponent } from './home/page-not-found/page-not-found.comp
       maxAge: 25,
       logOnly: false
     }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    UserModule,
   ],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: GetProductsInterceptor,
-    //   multi: true
-    // },
   ],
   bootstrap: [AppComponent]
 })
